@@ -2,6 +2,8 @@
 
 This is a visualisation that was developed for addendum's [article](https://www.addendum.org/neue-mittelschule/gekommen-um-wieder-zu-gehen/) on comparing the dropout rates in newer (Neue Mittelschule) and the older (Hauptschule) highschool system.
 
+![imge](./readme.gif)
+
 It was built using regl.js, basic js and some css magic. Because of a very short deadline and the very specific nature of the project we were unable to develop it as a standalone library.
 
 Because it was going to be embedded through an iframe we built it as a standlone website and didn't bother with packaging and other fancy tools. Maybe in the future if we ever need such a visualisation again, we would use parts of the code and turn it into a configurable library, but for now we will leave it as it is. The most important code is found in index.js where the shaders and logic live.
