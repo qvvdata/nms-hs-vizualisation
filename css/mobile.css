@@ -1,0 +1,144 @@
+@media only screen and (max-width: 960px) {
+    .hs-stats {
+        transform: translate(18%, -169px);
+    }
+
+    .nms-stats {
+        padding-right: 90px;
+        transform: translate(-19%, -14px);
+    }
+}
+
+/* Phone portrait. */
+@media only screen and (max-width: 620px) {
+    body {
+        height: 500px;
+    }
+
+    #play-btn, #replay-btn {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+
+    #play-btn {
+        top: 40%;
+    }
+
+    #replay-btn {
+        bottom: 0;
+        padding: 5px 10px;
+        top: inherit;
+    }
+
+    #graph {
+        height: 66%;
+    }
+
+    #result-graph {
+        top: 70%;
+    }
+
+    #top-text {
+        font-size: 12px;
+        width: 100%;
+    }
+        #top-text .marked-text {
+            margin: 0 auto 10px;
+            width: 350px;
+        }
+
+        #top-text #filters {
+            width: 400px;
+        }
+
+    .statistics p {
+        margin: 0 0 5px 0;
+    }
+
+    .statistics .stat-title {
+        font-size: 14px;
+    }
+
+    .statistics .title {
+        font-size: 12px;
+    }
+
+    .nms-stats {
+        left: 50%;
+        padding: 0;
+        text-align: left;
+        top: 78%;
+        width: auto;
+        right: auto;
+        transform: translate(-152px,0);
+    }
+        .nms-stats .pointer {
+            height: 90px;
+            left: -23px;
+            top: -40px;
+            width: 2px;
+        }
+
+        .nms-stats .pointer-rotated {
+            width: 15px;
+            height: 2px;
+            top: 48px;
+            left: -22px;
+            transform: initial;
+        }
+
+    .hs-stats {
+        padding: 0 ;
+        right: 56px;
+        top: 78%;
+        transform: inherit;
+        white-space: nowrap;
+        width: 150px;
+    }
+        .hs-stats .pointer {
+            height: 60px;
+            left: 166px;
+            top: -10px;
+            width: 2px;
+        }
+
+        .hs-stats .pointer-rotated {
+            width: 10px;
+            height: 2px;
+            top: 48px;
+            left: 156px;
+            transform: inherit;
+        }
+
+        .hs-stats p {
+            left: 0;
+            top: 0;
+        }
+}
+
+
+/* Fix for the filter section when screens get too small*/
+@media only screen and (max-width: 420px) {
+    #top-text #filters {
+        width: auto;
+    }
+}
+
+/* Fix for marked text width when screens become too small */
+@media only screen and (max-width: 350px) {
+    #top-text .marked-text {
+        width: auto;
+    }
+}
+
+/* Iphone SE and smaller resolutions. */
+@media only screen and (max-width: 379px) {
+    .statistics .pointer {
+        display: none;
+    }
+
+    .nms-label,
+    .hs-label {
+        display: none;
+    }
+}

@@ -1,0 +1,366 @@
+body {
+    background-color: #F6F4F3;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    height: 590px;
+    margin: 0 auto;
+    max-width: 1000px;
+    overflow: hidden;
+    position: relative;
+}
+
+#play-btn, #replay-btn {
+    background-color: #7ccee2;
+    border-radius: 2px;
+    color: #FFF;
+    cursor: pointer;
+    display: none;
+    font-weight: bold;
+    left: 50%;
+    padding: 10px 15px;
+    position: absolute;
+    top: 200px;
+    transform: translate(-50%, 0);
+    transition: all .7s;
+    z-index: 1000;
+}
+    #play-btn.activated {
+        opacity: 0;
+    }
+
+#replay-btn {
+    top: 470px;
+    opacity: 0;
+}
+    #replay-btn.show {
+        display: block;
+        opacity: 1;
+    }
+
+#graph {
+    height: 370px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    max-width: 370px;
+    width: 100%;
+}
+
+#greybg {
+    display: none;
+    background: #FAFAFA;
+    height: 100%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, 0);
+    width: 370px;
+    z-index: 0;
+}
+
+#top-text {
+    font-size: 14px;
+    left: 0;
+    position: absolute;
+    top: 25px;
+    z-index: 2;
+    width: 500px;
+    text-align: center;
+}
+
+.marked-text {
+    background: rgba(246, 244, 243, 0.7);
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    padding: 5px;
+}
+    
+    .follow-text {
+        font-weight: bold;
+        width: 420px;
+    }
+    .follow-text .student-count {
+        font-weight: bold;
+    }
+
+    .follow-text .highlight {
+        color: #FFF;
+        display: inline-block;
+        padding: 2px 5px;
+    }
+
+    .follow-text .hs-highlight {
+        background: #22C8F1;
+    }
+
+    .follow-text .nms-highlight {
+        background: #FFB86F;
+    }
+
+.see-text {
+    display: none;
+    font-weight: bold;
+    margin-left: 125px;
+    width: 280px;
+}
+
+#filters {
+    margin-left: 20px;
+    width: 490px;
+}
+    #filters .filter-tri {
+        height: 10px;
+        position: relative;
+        top: 1px;
+    }
+
+    #filters .value-holder {
+        background: #F1F1F1;
+        cursor: pointer;
+        display: inline-block;
+        font-weight: bold;
+        margin-bottom: 5px;
+        padding: 2px 5px;
+        position: relative;
+    }
+
+    #filters .value-holder-schooltype {
+        min-width: 128px;
+    }
+
+    #filters .value-holder-lang {
+        min-width: 108px;
+    }
+
+    #filters .value-holder-year {
+        min-width: 90px;
+    }
+
+    #filters .value-holder-urbanity .submenu {
+        min-width: 173px;
+    }
+
+    #filters .value-holder-year .submenu {
+        min-width: 156px;
+    }
+
+    #filters .value-holder-schooltype .submenu {
+        min-width: 220px;
+    }
+
+    #filters span .submenu {
+        display: none;
+        left: 0;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        top: 100%;
+        width: 100%;
+        z-index: 999;
+    }
+
+    #filters span:hover > .submenu {
+        display: block;
+    }
+
+    #filters span .submenu li {
+        background: #F1F1F1;
+        padding: 3px 5px;
+    }
+
+    #filters span .submenu li:hover {
+        background: #D8D8D8;
+    }
+
+    #filters.locked .filter-tri {
+        display: none;
+    }
+
+    #filters.locked .value-holder {
+        background: none;
+        cursor: default;
+    }
+
+    #filters.locked span:hover > .submenu {
+        display: none;
+    }
+
+#result-graph {
+    left: 50%;
+    position: absolute;
+    top: 400px;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    z-index: 999;
+}
+    
+    #result-graph .separator {
+        background: #EEE;
+        height: 5px;
+        margin-bottom: 2px;
+        width: 100%;
+    }
+
+    #result-graph .nms-label {
+        background: #22C8F1;
+        color: #FFF;
+        left: -40px;
+        font-size: 12px;
+        font-weight: bold;
+        padding: 2px 4px;
+        position: absolute;
+        top: 10px;
+    }
+
+    #result-graph .hs-label {
+        background: #FFB86F;
+        color: #FFF;
+        right: -30px;
+        font-size: 12px;
+        font-weight: bold;
+        padding: 2px 4px;
+        position: absolute;
+        top: 39px;
+    }
+
+    #result-graph .cube-holder {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: left;
+        margin: 0 0 5px;
+        padding: 0;
+    }
+
+        #result-graph .cube {
+            background: #F1F1F1;
+            border: 1px solid #DFDFDF;
+            border-radius: 1px;
+            box-sizing: border-box;
+            display: inline-flex;
+            height: 12px;
+            /*transition: opacity 100ms ease-out;*/
+            width: 12px;
+        }
+
+   #result-graph .cube-hs-g {
+        opacity: 0;
+        border-color: #FFB86F;
+        background-color: #FDD9B4; 
+
+        /* Same colour as above but with alpha channels. Not sure if I will need it. */
+        /*background-color: rgba(89, 198, 237, .5);*/
+    }
+
+    #result-graph .cube-hs-ng {
+        opacity: 0;
+        border-color: #D3BDA7;
+        background-color: #E6DBD0; 
+
+        /* Same colour as above but with alpha channels. Not sure if I will need it. */
+        /*background-color: rgba(89, 198, 237, .5);*/
+    }
+
+    #result-graph .cube-nms-ng {
+        border-color: #95BAC6;
+        background-color: #C7DAE0; 
+
+        /* Same colour as above but with alpha channels. Not sure if I will need it. */
+        /*background-color: rgba(89, 198, 237, .5);*/
+    }
+
+    #result-graph .cube-nms-g {
+        border-color: #59C6ED;
+        background-color: #8EE1F5; 
+
+        /* Same colour as above but with alpha channels. Not sure if I will need it. */
+        /*background-color: rgba(255, 184, 111, .5);   */
+    }
+
+.statistics {
+    box-sizing: border-box;
+    font-weight: bold;
+    position: absolute;
+    text-align: right;
+    width: 340px;
+    z-index: 1;
+}
+    .statistics .pointer {
+        position: absolute;
+        height: 2px;
+        width: 100px;
+        background: #DFDFDF;
+    }
+
+    .statistics .pointer-rotated {
+        transform: translate(-85px, 35px) rotateZ(-45deg);
+    }
+
+    .statistics p {
+        margin: 0 0 10px 0;
+    }
+
+    .statistics .stat-title {
+        font-size: 18px;
+    }
+
+    .statistics .title {
+        font-size: 14px;
+        margin-right: 10px;
+        width: 110px;
+    }
+
+    .statistics .bottomvalue {
+        display: block;
+        font-size: 10px;
+    }
+
+.nms-stats {
+    padding-right: 160px;
+    padding-top: 80px;
+    right: 50%;
+    top: 400px;
+    transform: translate(-47%, -14px);
+}
+    .nms-stats .pointer {
+        top: 0;
+        right: 0;
+    }
+
+    .nms-stats .passed {
+        color: #22C8F1;
+    }
+
+    .nms-stats .not-passed {
+        color: #95BAC6;
+    }
+
+.hs-stats {
+    left: 50%;
+    padding-left: 160px;
+    padding-bottom: 80px;
+    top: 397px;
+    transform: translate(47%, -169px);
+}
+    .hs-stats p {
+        left: -120px;
+        position: relative;
+        top: 20px;
+    }
+
+    .hs-stats .pointer {
+        bottom: 0;
+        left: 0;
+    }
+
+    .hs-stats .pointer-rotated {
+        transform: translate(85px, -35px) rotateZ(-45deg);
+    }
+
+    .hs-stats .passed {
+        color: #FFB86F;
+    }
+
+    .hs-stats .not-passed {
+        color: #D3BDA7;
+    }

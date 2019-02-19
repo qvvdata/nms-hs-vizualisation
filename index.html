@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <title>HS vs NMS</title>
+
+	<link rel="stylesheet" href="css/main.css"/>
+    <link rel="stylesheet" href="css/mobile.css"/>
+
+    <!-- Libs must come first -->
+    <script src="js/linearScale.js"></script>
+    <script src="js/polyfills.js"></script>
+    <script src="js/jquery-3.3.1.slim.min.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/regl.js"></script>
+    <script src="https://data.addendum.org/gfx/oligrapher/pym.v1.min.js"></script>
+
+    <!-- Helpers -->
+    <script src="js/dataHelper.js"></script>
+    <script src="js/helpers.js"></script>
+
+    <!-- Must come last. Program is run here. -->
+	<script src='js/index.js'></script>
+</head>
+<body>
+    <div id="top-text">
+    	<div class="marked-text follow-text">
+            Sehen Sie hier, wie viele der <span class="student-count" data-count="0">0</span> Schüler aus der <span class="highlight hs-highlight">Hauptschule</span> und <span class="highlight nms-highlight">Neue Mittelschule</span> das 1. Jahr in einer...
+        </div>
+
+        <div id="filters" class="marked-text">
+            <div>
+                <span class="value-holder value-holder-schooltype" data-filter="schooltype">
+                    <span class="filter-current-val">Schule mit Matura-Abschluss</span>
+                    <img class="filter-tri" src="assets/triangle.svg"/>
+                    <ul class="submenu">
+                        <li data-value="Schule mit Matura-Abschluss">Schule mit Matura-Abschluss</li>
+                        <li data-value="Höheren Schule (BHS)">Höheren Schule (BHS)</li>
+                        <li data-value="HTL">HTL</li>
+                        <li data-value="HAK">HAK</li>
+                        <li data-value="HLW">HLW</li>
+                        <li data-value="BORG">BORG</li>
+                        <li data-value="AHS-Oberstufe">AHS-Oberstufe</li>
+                        <li data-value="Lehrerbildenden Schule">Lehrerbildenden Schule</li>
+                    </ul>
+                </span>
+                schaffen - mit
+                <span class="value-holder value-holder-lang" data-filter="lang">
+                     <span class="filter-current-val">jeder</span>
+                     <img class="filter-tri" src="assets/triangle.svg"/>
+                    <ul class="submenu">
+                        <li data-value="jeder">jeder</li>
+                        <li data-value="deutscher">deutscher</li>
+                        <li data-value="nichtdeutscher">nichtdeutscher</li>
+                    </ul>
+                </span>
+            </div>
+            <div>
+                Alltagssprache in
+                <span class="value-holder value-holder-year" data-filter="year">
+                     <span class="filter-current-val">allen Jahren seit '13</span>
+                     <img class="filter-tri" src="assets/triangle.svg"/>
+                    <ul class="submenu">
+                        <li data-value="allen Jahren seit '13">allen Jahren seit '13</li>
+                        <li data-value="2013/14">2013/14</li>
+                        <li data-value="2014/15">2014/15</li>
+                        <li data-value="2015/16">2015/16</li>
+                        <li data-value="2016/17">2016/17</li>
+                    </ul>
+                </span>
+                in
+                <span class="value-holder value-holder-urbanity" data-filter="urbanity">
+                     <span class="filter-current-val">Österreich gesamt</span>
+                     <img class="filter-tri" src="assets/triangle.svg"/>
+                    <ul class="submenu">
+                        <li data-value="Österreich gesamt">Österreich gesamt</li>
+                        <li data-value="Großstädten">Großstädten</li>
+                        <li data-value="Kleinstädten">Kleinstädten</li>
+                        <li data-value="ländlichen Gemeinden">ländlichen Gemeinden</li>
+                    </ul>
+                </span>
+            </div>
+        </div>
+        <div class="marked-text see-text">
+            ...und sehen, ob sie durchkommen auf ihre Ausbildung:
+        </div>
+
+    </div>
+	<div id="greybg"></div>
+	<div id="graph"></div>
+    <div id="result-graph">
+        <span class="nms-label">NMS</span>
+        <span class="hs-label">HS</span>
+        <div class="separator"></div>
+        <div class="cube-outer-holder"></div>
+    </div>
+
+    <div class="statistics nms-stats">
+        <div class="pointer"></div>
+        <div class="pointer pointer-rotated"></div>
+        <p class="stat-title">Neue Mittelschule</p>
+        <p class="passed">
+            <span class="title">Geschaft:</span><span class="topvalue count">0</span>
+            <span class="bottomvalue percentage">0%</span>
+        </p>
+        <p class="not-passed">
+            <span class="title">Nicht Geschaft:</span><span class="topvalue count">0</span>
+            <span class="bottomvalue percentage">0%</span>
+        </p>
+    </div>
+
+    <div class="statistics hs-stats">
+        <div class="pointer"></div>
+        <div class="pointer pointer-rotated"></div>
+        <p class="stat-title">Hauptschule</p>
+        <p class="passed">
+            <span class="title">Geschaft:</span><span class="topvalue count">0</span>
+            <span class="bottomvalue percentage">0%</span>
+        </p>
+        <p class="not-passed">
+            <span class="title">Nicht Geschaft:</span><span class="topvalue count">0</span>
+            <span class="bottomvalue percentage">0%</span>
+        </p>
+    </div>
+
+    <div id="play-btn">Start</div>
+    <div id="replay-btn">Neustart</div>
+</body>
+</html>
